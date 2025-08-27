@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: namespaces
+  namespace: argocd # Or the namespace where your Argo CD instance is running
+spec:
+  project: default # The Argo CD Project this application belongs to
+  source:
+    repoURL: https://github.com/subbu20n/eks-argocd.git # URL of your Git repository
+    targetRevision: main # The branch or commit hash to deploy from (e.g., main, v1.0.0)
+    path: namespaces # The path within the repository where your Kubernetes manifests are located
+  destination:
+    server: https://kubernetes.default.svc # The target Kubernetes cluster (usually in-cluster)
+    namespace: argocd # The namespace where the application resources will be deployed
+  syncPolicy:
+    automated:
+      prune: true # Allows Argo CD to delete resources that are no longer in Git
+      selfHeal: true # Allows Argo CD to automatically sync if there's a drift
+    syncOptions:
+      - CreateNamespace=true # Creates the target namespace if it doesn't exist
