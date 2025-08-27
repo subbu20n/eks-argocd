@@ -9,7 +9,8 @@ spec:
     repoURL: https://github.com/subbu20n/eks-argocd.git # URL of the Git repository
     targetRevision: main # The specific branch, tag, or commit to sync from
     path: namespaces # The path within the repository where the application manifests are located
-    kustomize: {}
+    directory:
+        recurse: true 
   destination:
     server: https://kubernetes.default.svc # The API server URL of the target Kubernetes cluster
     namespace: argocd # The namespace in the target cluster where the application will be deployed
