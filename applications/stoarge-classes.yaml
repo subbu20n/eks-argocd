@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/subbu20n/eks-argocd.git # URL of the Git repository
     targetRevision: main # The specific branch, tag, or commit to sync from
-    path: stoargeclasses # The path within the repository where the application manifests are located
+    path: storageclasses # The path within the repository where the application manifests are located
     directory:
         recurse: true 
   destination:
