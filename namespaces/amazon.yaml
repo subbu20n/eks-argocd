@@ -4,4 +4,7 @@ metadata:
      name: amazon 
      labels: 
         project: roboshop 
-        environment: dev 
+        environment: dev   
+
+
+ 
